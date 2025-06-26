@@ -76,8 +76,8 @@ function App() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: p,
-            start: "top center",
-            end: "bottom 50%",
+            start: "top 80%",
+            end: "bottom 40%",
             toggleActions: 'play reverse play reverse',
             markers: true, 
           },
