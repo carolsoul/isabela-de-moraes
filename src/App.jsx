@@ -68,7 +68,7 @@ function App() {
     paragraphs.forEach((p) => {
       gsap.fromTo(
         p,
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 100 },
         {
           opacity: 1,
           y: 0,
