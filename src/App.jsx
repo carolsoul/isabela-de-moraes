@@ -63,140 +63,147 @@ function App() {
   const menuOpacity = useTransform(scrollY, [0.8 * windowHeight, windowHeight], [0, 1]);
 
   useEffect(() => {
-    const paragraphs = gsap.utils.toArray('.p1, .p2, .p3, .p4, .p5, .p-proj');
+  const video = document.querySelector('.video-bg');
 
-    paragraphs.forEach((p) => {
-      gsap.fromTo(
-        p,
-        { opacity: 0, y: 100 },
-        {
-          opacity: 1,
-          y: 100,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: p,
-            start: "top 80%",
-            end: "bottom 40%",
-            toggleActions: 'play reverse play reverse',
-            markers: true, 
-          },
-        }
-      );
+  // Garante que ScrollTrigger calcule corretamente após o vídeo carregar
+  if (video) {
+    video.addEventListener('loadeddata', () => {
+      ScrollTrigger.refresh();
     });
+  }
 
-    // Animação da seção branca subindo
+  // 1. Animação de parágrafos com fade e deslocamento
+  const paragraphs = gsap.utils.toArray('.p1, .p2, .p3, .p4, .p5, .p-proj');
+  paragraphs.forEach((p) => {
     gsap.fromTo(
-      revealSection.current,
-      { yPercent: 20 },
+      p,
+      { opacity: 0, y: 50 },
       {
-        yPercent: 0,
+        opacity: 1,
+        y: 0,
+        duration: 1,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: revealSection.current,
-          start: 'bottom 30%',
-          end: 'top 80%',
-          scrub: true,
+          trigger: p,
+          start: 'top 80%',
+          end: 'bottom 40%',
+          toggleActions: 'play reverse play reverse',
+          // markers: true,
         },
       }
     );
-    
-    // Animação da lista: destaque do item central
-  const listItems = gsap.utils.toArray('.white-section ul li');
+  });
 
+  // 2. Efeito de movimento da seção revelada (desce conforme o scroll)
+  gsap.fromTo(
+    revealSection.current,
+    { yPercent: 30 },
+    {
+      yPercent: 0,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: revealSection.current,
+        start: 'bottom 30%',
+        end: 'top 80%',
+        scrub: true,
+      },
+    }
+  );
+
+  // 3. Animação da lista central com variação de opacidade
+  const listItems = gsap.utils.toArray('.white-section ul li');
   listItems.forEach((li) => {
     gsap.to(li, {
-      opacity: 1,
       scrollTrigger: {
         trigger: li,
         start: 'center center',
         end: 'center center',
         scrub: true,
         onUpdate: (self) => {
-          const progress = self.progress;
           const distanceFromCenter = Math.abs(self.start - self.scroller.scrollTop);
-          const fade = Math.max(0.5, 1 - distanceFromCenter / window.innerHeight);
-          gsap.to(li, { opacity: fade, overwrite: 'auto', duration: 0.1 });
-        }
+          const fade = Math.max(0.2, 1 - distanceFromCenter / window.innerHeight);
+          gsap.to(li, {
+            opacity: fade,
+            overwrite: 'auto',
+            duration: 0.1,
+          });
+        },
       },
     });
   });
 
-  const expArticle = gsap.utils.toArray('.white-section .experiencia');
-  const qualArticle = gsap.utils.toArray('.white-section .qualificacao');
-
-  expArticle.forEach(() => {
-    gsap.to(".white-section", {
-      backgroundColor: "#000",
-      scrollTrigger: {
-        trigger: ".experiencia",
-        start: "top 10%",
-        end: "bottom 120%",
-        scrub: true,
-        //markers: true,
-      },
-    });
-  }
-  );
-
-  qualArticle.forEach(() => {
-    gsap.to(".white-section", {
-      backgroundColor: "#fff",
-      scrollTrigger: {
-        trigger: ".qualificacao",
-        start: "top 10%",
-        end: "bottom 120%",
-        scrub: true,
-        //markers: true,
-      },
-    });
+  // 4. Mudança de cor da seção branca para preto (experiência)
+  gsap.to('.white-section', {
+    backgroundColor: '#000',
+    scrollTrigger: {
+      trigger: '.experiencia',
+      start: 'top 10%',
+      end: 'bottom 120%',
+      scrub: true,
+    },
   });
 
-      // Animação de fade + deslocamento para cada .exp
-    const expBlocks = gsap.utils.toArray('.exp');
-    const qualBlocks = gsap.utils.toArray('.qual');
+  // 5. Volta para branco na seção de qualificação
+  gsap.to('.white-section', {
+    backgroundColor: '#fff',
+    scrollTrigger: {
+      trigger: '.qualificacao',
+      start: 'top 10%',
+      end: 'bottom 120%',
+      scrub: true,
+    },
+  });
 
-    expBlocks.forEach((block) => {
-      gsap.fromTo(
-        block,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: block,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-            // markers: true,
-          },
-        }
-      );
-    });
+  // 6. Fade + movimento dos blocos de experiência
+  const expBlocks = gsap.utils.toArray('.exp');
+  expBlocks.forEach((block) => {
+    gsap.fromTo(
+      block,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: block,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
 
-    qualBlocks.forEach((block) => {
-      gsap.fromTo(
-        block,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: block,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-            // markers: true,
-          },
-        }
-      );
-    });
+  // 7. Fade + movimento dos blocos de qualificação
+  const qualBlocks = gsap.utils.toArray('.qual');
+  qualBlocks.forEach((block) => {
+    gsap.fromTo(
+      block,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: block,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse',
+        },
+      }
+    );
+  });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
+  // 8. Previne piscar da seção branca na montagem inicial
+  gsap.to('.white-section', { opacity: 1, duration: 0.5 });
+
+  // Limpeza dos ScrollTriggers ao desmontar
+  return () => {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    if (video) {
+      video.removeEventListener('loadeddata', ScrollTrigger.refresh);
+    }
+  };
 }, []);
 
 
