@@ -232,7 +232,7 @@ ul li{
 }
 
 .p-proj{
-  font-weight: 500;
+  font-weight: bold;
   width: 100%;
   padding: 10rem 2rem;
 }
@@ -240,7 +240,7 @@ ul li{
 .carousel-wrapper {
   width: 100%;
   overflow: hidden;
-  padding: 40px 0;
+  padding: 40px 1rem;
   text-transform: uppercase;
 }
 
