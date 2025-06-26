@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
+import { tr } from 'framer-motion/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -135,9 +136,11 @@ function App() {
     backgroundColor: '#000',
     scrollTrigger: {
       trigger: '.experiencia',
-      start: 'top 10%',
-      end: 'bottom 120%',
+      start: 'top 5%',
+      end: 'bottom 100%',
       scrub: true,
+      markers: true, 
+      // Ative os marcadores para depuração
     },
   });
 
@@ -146,8 +149,8 @@ function App() {
     backgroundColor: '#fff',
     scrollTrigger: {
       trigger: '.qualificacao',
-      start: 'top 10%',
-      end: 'bottom 120%',
+      start: 'top 30%',
+      end: 'bottom 100%',
       scrub: true,
     },
   });
