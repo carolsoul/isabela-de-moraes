@@ -71,7 +71,7 @@ function App() {
         { opacity: 0, y: 100 },
         {
           opacity: 1,
-          y: 0,
+          y: 50,
           duration: 1,
           ease: 'power2.out',
           scrollTrigger: {
@@ -88,7 +88,7 @@ function App() {
     // Animação da seção branca subindo
     gsap.fromTo(
       revealSection.current,
-      { yPercent: 30 },
+      { yPercent: 20 },
       {
         yPercent: 0,
         ease: 'power2.out',
