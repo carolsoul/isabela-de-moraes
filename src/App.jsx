@@ -77,7 +77,7 @@ function App() {
           scrollTrigger: {
             trigger: p,
             start: 'top center',
-            end: 'bottom 30%',
+            end: 'bottom center',
             toggleActions: 'play reverse play reverse',
              //markers: true, 
           },
@@ -88,7 +88,7 @@ function App() {
     // Animação da seção branca subindo
     gsap.fromTo(
       revealSection.current,
-      { yPercent: 20 },
+      { yPercent: 30 },
       {
         yPercent: 0,
         ease: 'power2.out',
