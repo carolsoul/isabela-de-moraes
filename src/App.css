@@ -19,13 +19,20 @@ body {
 }
 
 .parallax-wrapper {
-  background: url('https://plus.unsplash.com/premium_photo-1667121496133-3975a3515c06?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
   background-attachment: fixed;
   height: 100%;
+}
+
+.video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .title-container {
@@ -235,6 +242,7 @@ ul li{
   font-weight: bold;
   width: 100%;
   padding: 10rem 2rem;
+  font-size: 20px;
 }
 
 .carousel-wrapper {

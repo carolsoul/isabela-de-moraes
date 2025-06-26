@@ -250,6 +250,7 @@ function App() {
           </motion.aside>
         )}
       </AnimatePresence>
+      <video src="/video.mp4" autoPlay loop muted playsInline className="video-bg"/>
 
       <section ref={revealSection} className="white-section">
         <p className="p1">
@@ -313,7 +314,7 @@ function App() {
           </div>
 
           <div className="qual qual2">
-            <h2>Enino Médio Técnico em Marketing</h2>
+            <h2>Ensino Médio Técnico em Marketing</h2>
             <h3>ETEC Tiquatira</h3>
             <h4>Jan 2020 - Dez 2022</h4>
           </div>
