@@ -202,11 +202,10 @@ function App() {
 
   return (
     <div className="parallax-wrapper">
-      <motion.button
-        className="menu-icon"
-        style={{ opacity: menuOpacity }}
-        onClick={() => setIsMenuOpen(true)}
-      >
+
+      <video src="/video.mp4" autoPlay loop muted playsInline className="video-bg"/>
+
+      <motion.button className="menu-icon" style={{ opacity: menuOpacity }} onClick={() => setIsMenuOpen(true)}>
         ☰
       </motion.button>
 
@@ -219,8 +218,7 @@ function App() {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.aside
-            className="sidebar"
+          <motion.aside className="sidebar"
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
@@ -250,7 +248,6 @@ function App() {
           </motion.aside>
         )}
       </AnimatePresence>
-      <video src="/video.mp4" autoPlay loop muted playsInline className="video-bg"/>
 
       <section ref={revealSection} className="white-section">
         <p className="p1">
