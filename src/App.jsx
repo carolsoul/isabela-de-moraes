@@ -114,20 +114,18 @@ function App() {
   const listItems = gsap.utils.toArray('.white-section ul li');
   listItems.forEach((li) => {
     gsap.to(li, {
+      opacity: 1,
       scrollTrigger: {
         trigger: li,
         start: 'center center',
         end: 'center center',
         scrub: true,
         onUpdate: (self) => {
+          const progress = self.progress;
           const distanceFromCenter = Math.abs(self.start - self.scroller.scrollTop);
-          const fade = Math.max(0.2, 1 - distanceFromCenter / window.innerHeight);
-          gsap.to(li, {
-            opacity: fade,
-            overwrite: 'auto',
-            duration: 0.1,
-          });
-        },
+          const fade = Math.max(0.5, 1 - distanceFromCenter / window.innerHeight);
+          gsap.to(li, { opacity: fade, overwrite: 'auto', duration: 0.1 });
+        }
       },
     });
   });
