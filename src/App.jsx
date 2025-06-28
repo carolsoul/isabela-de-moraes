@@ -61,7 +61,7 @@ function App() {
   }, []);
 
   const top = useTransform(scrollY, [0, windowHeight], ['50vh', '2vh']);
-
+  const fontSize = useTransform(scrollY, [0, windowHeight], ['4rem', '1.5rem']);
   const menuOpacity = useTransform(scrollY, [0.8 * windowHeight, windowHeight], [0, 1]);
 
   useEffect(() => {
@@ -199,26 +199,17 @@ function App() {
   gsap.to('.white-section', { opacity: 1, duration: 0.5 });
 
 
-  // Título reduzindo conforme o scroll
   gsap.to(titleRef.current, {
-    fontSize: '1.5rem',
-    scrollTrigger: {
-      trigger: '.parallax-wrapper',
-      start: 'top top',
-      end: 'bottom top',
-      //markers: true,
-    },
-  });
-
-  // Título crescendo ao chegar no contato
-  gsap.to(titleRef.current, {
-    fontSize: '4rem',
+    fontSize: '3rem',
+    duration: 1,
+    ease: 'power2.out',
     scrollTrigger: {
       trigger: '#contato',
-      start: 'top 10%',
-      end: 'bottom 30%',
-      scrub: true,
-      //markers: true
+      start: 'top 20%',
+      end: 'bottom 100%',
+      toggleActions: 'play reverse play reverse',
+      scrub: false,
+      markers: true,
     },
   });
 
@@ -242,7 +233,7 @@ function App() {
       </motion.button>
 
       <motion.div className="title-container" style={{ top }}>
-        <motion.h1 className="parallax-title" ref={titleRef} >
+        <motion.h1 className="parallax-title" style={{ fontSize }} ref={titleRef} >
           Isabela
           <br />Moraes
         </motion.h1>
