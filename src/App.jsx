@@ -209,7 +209,7 @@ function App() {
       end: 'bottom 100%',
       toggleActions: 'play reverse play reverse',
       scrub: false,
-      markers: true,
+      //markers: true,
     },
   });
 
