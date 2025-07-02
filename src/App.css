@@ -167,6 +167,7 @@ nav h1{
   background-color: white;
   height: auto;
   padding-bottom: 5rem;
+  overflow: hidden;
 }
 
 .bio-img{
@@ -185,7 +186,7 @@ nav h1{
 #sp{
   z-index: 1;
   position: absolute;
-  right: 3rem;
+  right: 2.5rem;
   animation: rotate 5s ease-in-out infinite alternate;
 }
 
