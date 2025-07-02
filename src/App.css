@@ -191,8 +191,9 @@ nav h1{
 
 #isabela{
   position: relative;
-  top: 7rem;
-  right: 0.5rem;
+  top: 6.8rem;
+  right: 2rem;
+  width: 9rem;
 }
 
 .bio-section p{
