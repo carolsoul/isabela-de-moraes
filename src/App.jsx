@@ -3,7 +3,8 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
-import { tr } from 'framer-motion/client';
+import { FaArrowLeft } from 'react-icons/fa';
+import { main, section, tr } from 'framer-motion/client';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -74,88 +75,8 @@ function App() {
     });
   }
 
-  // 1. Animação de parágrafos com fade e deslocamento
-  const paragraphs = gsap.utils.toArray('.p1, .p2, .p3, .p4, .p5, .p-proj');
-  paragraphs.forEach((p) => {
-    gsap.fromTo(
-      p,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: p,
-          start: 'top 80%',
-          end: 'bottom 40%',
-          toggleActions: 'play reverse play reverse',
-          // markers: true,
-        },
-      }
-    );
-  });
 
-  // 2. Efeito de movimento da seção revelada (desce conforme o scroll)
-  gsap.fromTo(
-    revealSection.current,
-    { yPercent: 30 },
-    {
-      yPercent: 0,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: revealSection.current,
-        start: 'bottom 30%',
-        end: 'top 80%',
-        scrub: true,
-      },
-    }
-  );
-
-  // 3. Animação da lista central com variação de opacidade
-  const listItems = gsap.utils.toArray('.white-section ul li');
-  listItems.forEach((li) => {
-    gsap.to(li, {
-      opacity: 1,
-      scrollTrigger: {
-        trigger: li,
-        start: 'center center',
-        end: 'center center',
-        scrub: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          const distanceFromCenter = Math.abs(self.start - self.scroller.scrollTop);
-          const fade = Math.max(0.5, 1 - distanceFromCenter / window.innerHeight);
-          gsap.to(li, { opacity: fade, overwrite: 'auto', duration: 0.1 });
-        }
-      },
-    });
-  });
-
-  // 4. Mudança de cor da seção branca para preto (experiência)
-  gsap.to('.white-section', {
-    backgroundColor: '#000',
-    scrollTrigger: {
-      trigger: '.experiencia',
-      start: 'top 5%',
-      end: 'bottom 100%',
-      scrub: true,
-      //markers: true, 
-    },
-  });
-
-  // 5. Volta para branco na seção de qualificação
-  gsap.to('.white-section', {
-    backgroundColor: '#fff',
-    scrollTrigger: {
-      trigger: '.qualificacao',
-      start: 'top 30%',
-      end: 'bottom 100%',
-      scrub: true,
-    },
-  });
-
-  // 6. Fade + movimento dos blocos de experiência
+  // Fade + movimento dos blocos de experiência
   const expBlocks = gsap.utils.toArray('.exp');
   expBlocks.forEach((block) => {
     gsap.fromTo(
@@ -175,8 +96,8 @@ function App() {
     );
   });
 
-  // 7. Fade + movimento dos blocos de qualificação
-  const qualBlocks = gsap.utils.toArray('.qual');
+  //Fade + movimento dos blocos de educação
+  const qualBlocks = gsap.utils.toArray('.educ');
   qualBlocks.forEach((block) => {
     gsap.fromTo(
       block,
@@ -195,16 +116,12 @@ function App() {
     );
   });
 
-  // 8. Previne piscar da seção branca na montagem inicial
-  gsap.to('.white-section', { opacity: 1, duration: 0.5 });
-
-
   gsap.to(titleRef.current, {
     fontSize: '3rem',
     duration: 1,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: '#contato',
+      trigger: '#contact',
       start: 'top 20%',
       end: 'bottom 100%',
       toggleActions: 'play reverse play reverse',
@@ -224,145 +141,188 @@ function App() {
 
 
   return (
-    <div className="parallax-wrapper">
+    <main>
+      <section className="video-section">
+         <video src="/video.mp4" autoPlay loop muted playsInline className="video-bg"/>
 
-      <video src="/video.mp4" autoPlay loop muted playsInline className="video-bg"/>
-
-      <motion.button className="menu-icon" style={{ opacity: menuOpacity }} onClick={() => setIsMenuOpen(true)}>
+          <motion.button className="menu-icon" style={{ opacity: menuOpacity }} onClick={() => setIsMenuOpen(true)}>
         ☰
-      </motion.button>
+        </motion.button>
 
-      <motion.div className="title-container" style={{ top }}>
-        <motion.h1 className="parallax-title" style={{ fontSize }} ref={titleRef} >
-          Isabela
-          <br />Moraes
-        </motion.h1>
-      </motion.div>
+        <motion.div className="title-container" style={{ top }}>
+          <motion.h1 className="parallax-title" style={{ fontSize }} ref={titleRef} >
+            Isabela
+            <br />Moraes
+          </motion.h1>
+        </motion.div>
 
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.aside className="sidebar"
-            initial={{ x: '-100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '-100%' }}
-            transition={{ type: 'tween', duration: 0.4 }}
-          >
-            <button className="close-button" onClick={() => setIsMenuOpen(false)}>
-              ×
-            </button>
-            <nav>
-              <ul>
-                <li>
-                  <a href="/ISABELADEMORAES.pdf" target="_blank" rel="noopener noreferrer">
-                    Currículo
-                  </a>
-                </li>
-                <li>
-                  <a href="#contato">Contato</a>
-                </li>
-                <li>
-                  <a href="https://www.linkedin.com/in/isabelademoraes">LinkedIn</a>
-                </li>
-                <li>
-                  <a href="mailto:isabelafmoraes21@gmail.com">isabelafmoraes21@gmail.com</a>
-                </li>
-              </ul>
-            </nav>
-          </motion.aside>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.aside className="sidebar"
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'tween', duration: 0.4 }}
+            >
+              <button className="close-button" onClick={() => setIsMenuOpen(false)}>
+                ×
+              </button>
+              <nav>
+                <h1>Isabela <br/> Moraes</h1>
+                <ul>
+                  <li>
+                    <a href="/ISABELADEMORAES.pdf" target="_blank" rel="noopener noreferrer">
+                      Currículo
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#contact">Contato</a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/isabelademoraes">LinkedIn</a>
+                  </li>
+                  <li>
+                    <a href="mailto:isabelafmoraes21@gmail.com">isabelafmoraes21@gmail.com</a>
+                  </li>
+                </ul>
+              </nav>
+            </motion.aside>
+          )}
+        </AnimatePresence>
+        
+      </section>
 
-      <section ref={revealSection} className="white-section">
-        <p className="p1">
-          Sempre acreditei que boas <span>ideias</span> não nascem do nada. Elas surgem da escuta, da{' '}
-          <span>curiosidade</span> e do desejo genuíno de gerar <span>impacto</span>.
-        </p>
+      <section className='bio-section'>
 
-        <p className="p2">
-          Encontrei na publicidade uma forma de transformar histórias em <span>experiências</span>.
-        </p>
+        <div className="bio-img">
+          <img src="/note.svg" alt="nota" id='nota' />
 
-        <p className="p3">
-          Ao longo da minha trajetória, mergulhei em projetos onde pude unir <span>criação</span>,{' '}
-          <span>estratégia</span> e <span>planejamento</span>.
-        </p>
+          <div className="overlayer">
+            <img src="/sp.svg" alt="sao-paulo-sticker" id='sp' />
+            <img src="isabela.svg" alt="foto-isabela-de-moraes" id='isabela'/>
+          </div>
+          
+        </div>
+        
 
-        <p className="p4">
-          Hoje, me dedico ao <span>planejamento criativo</span> e ao <span>live marketing</span>, buscando
-          criar conexões reais entre marcas e pessoas.
-        </p>
+        <p>publicitária com foco em produção de eventos, conteúdo digital & planejamento criativo.</p>
 
-        <p className="p5">
-          Acredito na força das <span>ideias</span> que tocam, engajam e <span>permanecem</span>.
-        </p>
+        <small>Acredito que boas ideias nascem da escuta, da curiosidade e do desejo de causar <span>impacto</span>.</small>
+      </section>
 
-        <ul>
-          <li className='li1'>Planejamento pubicitário e de eventos</li>
-          <li className='li2' >Criação e roteiros e conteúdo audiovisual</li>
-          <li className='li3'>Redação publicitária e Storytelling</li>
-          <li className='li4'>Produção de conteúdo</li>
-          <li className='li5'>Análise de métricas digitais</li>
+      <section className="services-section">
+
+        <h2>Serviços</h2>
+
+         <ul>
+
+          <div className="service">
+            <li>Planejamento pubicitário e de eventos </li>
+            <FaArrowLeft className='arrow' />
+          </div>
+
+          <div className="service">
+            <li>Criação e roteiros e conteúdo audiovisual</li>
+            <FaArrowLeft className='arrow' />
+          </div>
+
+          <div className="service">
+            <li>Redação publicitária e Storytelling</li>
+            <FaArrowLeft className='arrow' />
+          </div>
+
+          <div className="service">
+            <li>Produção de conteúdo</li>
+            <FaArrowLeft className='arrow' />
+          </div>
+
+          <div className="service">
+            <li>Análise de métricas digitais</li>
+            <FaArrowLeft className='arrow' />
+          </div>
+
         </ul>
 
-        <article className="experiencia">
+      </section>
 
-          <div className="exp exp1">
-            <h2>Planejamento Criativo Júnior</h2>
-            <h3>Agência Fuego</h3>
-            <h4>Set 2024 - Atual</h4>
+      <section className="exp-section">
+
+        <h2>Experiência</h2>
+
+        <div className="exp-container">
+
+          <div className="exp" id='exp1'>
+            <h3>Planejamento Criativo Júnior</h3>
+            <h4>Agência Fuego</h4>
+            <h5>Set 2024 - Atual</h5>
+          </div>
+        
+          <div className="exp" id='exp2'>
+            <h3>Estagiária de Mídias Sociais</h3>
+            <h4>Agência Fuego</h4>
+            <h5>Fev 2024 - Ago 2024</h5>
           </div>
 
-          <div className="exp exp2">
-            <h2>Estagiária de Mídias Sociais</h2>
-            <h3>Agência Fuego</h3>
-            <h4>Fev 2024 - Ago 2024</h4>
+          <div className="exp" id='exp3'>
+            <h3>Estagiária de Publicidade e Propaganda</h3>
+            <h4>Cirúgica Nascente</h4>
+            <h5>Mai 2023 - Fev 2024</h5>
           </div>
 
-          <div className="exp exp3">
-            <h2>Estagiária de Publicidade e Propaganda</h2>
-            <h3>Cirúrgica Nascente</h3>
-            <h4>Mai 2023 - Fev 2024</h4>
+        </div>
+
+      </section>
+
+      <section className="educ-section">
+
+        <h2>Educação</h2>
+
+        <div className="educ-container">
+          <div className="educ" id='educ1'>
+            <h3>Publicidade e Propaganda</h3>
+            <h4>Universidade Cruzeiro do Sul</h4>
+            <h5>Mar 2023 - Dez 2026</h5>
           </div>
-
-        </article>
-
-        <article className='qualificacao'>
-          <div className="qual qual1">
-            <h2>Publicidade e Propaganda</h2>
-            <h3>Universidade Cruzeiro do Sul</h3>
-            <h4>Mar 2023 - Dez 2026</h4>
-          </div>
-
-          <div className="qual qual2">
-            <h2>Ensino Médio Técnico em Marketing</h2>
-            <h3>ETEC Tiquatira</h3>
-            <h4>Jan 2020 - Dez 2022</h4>
-          </div>
-        </article>
-
-        <p className='p-proj'>Mais do que ideias criativas, aqui estão experiências pensadas com propósito. Do planejamento à execução, cada projeto foi construído para emocionar e engajar.</p>
-
-         <div className="carousel-wrapper">
-          <div className="carousel-container">
-            {cards.map((card, index) => (
-              <div className="card" key={index}>
-                <img src={card.img} alt={card.title} />
-                <div className="image"></div>
-                <h3>{card.title}</h3>
-                <h4>{card.subtitle}</h4>
-                <h5>{card.description}</h5>
-              </div>
-            ))}
+        
+          <div className="educ" id='educ2'>
+            <h3>Ensino Médio Técnico em Marketing</h3>
+            <h4>ETEC Tiquatira</h4>
+            <h5>Jan 2020 - Dez 2022</h5>
           </div>
         </div>
 
-        <section className='contato' id='contato'>
+      </section>
 
-          <a href='mailto:isabelafmoraes21@gmail.com'>isabelafmoraes21@gmail.com</a>
+      <section className="project-section">
 
-          <p className='ctt-p'>Me coloco à disposição para contribuir com projetos de comunicação e experiências de marca.</p>
+        <p>Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, <span>do planejamento à execução.</span></p>
 
-          <div className="media">
+        <article>
+          <h2>Projetos</h2>
+          <div className="carousel-wrapper">
+            <div className="carousel-container">
+              {cards.map((card, index) => (
+                <div className="card" key={index}>
+                  <img src={card.img} alt={card.title} />
+                  <div className="image"></div>
+                  <h3>{card.title}</h3>
+                  <h4>{card.subtitle}</h4>
+                  <h5>{card.description}</h5>
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+
+      </section>
+
+      <section className="contact-section" id='contact'>
+
+        <a href="mailto:isabelafmoraes21@gmail.com">isabelafmoraes21@gmail.com</a>
+
+        <p>Me coloco à disposição para contribuir com projetos de comunicação e experiências de marca.</p>
+
+        <div className="media">
             <a href="https://www.linkedin.com/in/isabelademoraes">
             <img src="/LinkedIn.svg" alt="LinkedIn" /> </a>
 
@@ -370,12 +330,10 @@ function App() {
 
           </div>
 
-      </section>
+         <footer>&copy; Isabela Moraes 2025 Todos os direitos reservados</footer>
 
-      <footer>&copy; Isabela Moraes 2025</footer>
       </section>
-      
-    </div>
+    </main>
   );
 }
 
