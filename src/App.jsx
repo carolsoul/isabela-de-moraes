@@ -15,6 +15,8 @@ function App() {
 
   const revealSection = useRef(null);
   const titleRef = useRef(null);
+  const carouselRef = useRef();
+
 
   const cards = [
     {
@@ -54,6 +56,8 @@ function App() {
       img: '/celmar.png',
     },
   ]
+
+   const [currentCard, setCurrentCard] = useState(cards[0]);
 
   useEffect(() => {
     const handleResize = () => setWindowHeight(window.innerHeight);
@@ -122,7 +126,7 @@ function App() {
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '#contact',
-      start: 'top 20%',
+      start: 'top top',
       end: 'bottom 100%',
       toggleActions: 'play reverse play reverse',
       scrub: false,
@@ -130,15 +134,44 @@ function App() {
     },
   });
 
-  // Limpeza dos ScrollTriggers ao desmontar
+  const handleScroll = () => {
+    const container = carouselRef.current;
+    if (!container) return;
+
+    const children = Array.from(container.children);
+    const containerCenter = container.scrollLeft + container.offsetWidth / 2;
+
+    let closestCard = cards[0];
+    let closestDistance = Infinity;
+
+    children.forEach((child, i) => {
+      const cardCenter = child.offsetLeft + child.offsetWidth / 2;
+      const distance = Math.abs(cardCenter - containerCenter);
+
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestCard = cards[i];
+      }
+    });
+
+    setCurrentCard(closestCard);
+  };
+
+  const container = carouselRef.current;
+  if (container) {
+    container.addEventListener('scroll', handleScroll);
+  }
+
   return () => {
     ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     if (video) {
       video.removeEventListener('loadeddata', ScrollTrigger.refresh);
     }
-  };
-}, []);
-
+    if (container) {
+      container.removeEventListener('scroll', handleScroll);
+    }
+  }
+}, [cards]);
 
   return (
     <main>
@@ -297,10 +330,18 @@ function App() {
 
         <p>Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, <span>do planejamento à execução.</span></p>
 
-        <article>
+        <article className="projects-article">
+          {/* imagem de fundo com blur */}
+          <div
+            className="background-blur"
+            style={{
+              backgroundImage: `url(${currentCard.img})`
+            }}
+          />
+
           <h2>Projetos</h2>
           <div className="carousel-wrapper">
-            <div className="carousel-container">
+            <div className="carousel-container" ref={carouselRef}>
               {cards.map((card, index) => (
                 <div className="card" key={index}>
                   <img src={card.img} alt={card.title} />
