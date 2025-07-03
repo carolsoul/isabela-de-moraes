@@ -237,15 +237,22 @@ function App() {
           
         </div>
         
+        <div className="greeting">
+          <p>publicitária com foco em produção de eventos, conteúdo digital & planejamento criativo.</p>
 
-        <p>publicitária com foco em produção de eventos, conteúdo digital & planejamento criativo.</p>
-
-        <small>Acredito que boas ideias nascem da escuta, da curiosidade e do desejo de causar <span>impacto</span>.</small>
+          <small>Acredito que boas ideias nascem da escuta, da curiosidade e do desejo de causar <span>impacto</span>.</small>
+        </div>
+        
       </section>
 
       <section className="services-section">
 
-        <h2>Serviços</h2>
+        <div className="title">
+          <h2>Serviços</h2>
+          <h2>Serviços</h2>
+          <h2>Serviços</h2>
+          <h2>Serviços</h2>
+        </div>
 
          <ul>
 
@@ -280,7 +287,12 @@ function App() {
 
       <section className="exp-section">
 
-        <h2>Experiência</h2>
+        <div className="title">
+          <h2>Experiência</h2>
+          <h2>Experiência</h2>
+          <h2>Experiência</h2>
+          <h2>Experiência</h2>
+        </div>
 
         <div className="exp-container">
 
@@ -308,7 +320,13 @@ function App() {
 
       <section className="educ-section">
 
-        <h2>Educação</h2>
+        <div className="title">
+          <h2>Educação</h2>
+          <h2>Educação</h2>
+          <h2>Educação</h2>
+          <h2>Educação</h2>
+          <h2>Educação</h2>
+        </div>
 
         <div className="educ-container">
           <div className="educ" id='educ1'>
@@ -339,7 +357,13 @@ function App() {
             }}
           />
 
+          <div className="title">
           <h2>Projetos</h2>
+          <h2>Projetos</h2>
+          <h2>Projetos</h2>
+          <h2>Projetos</h2>
+        </div>
+
           <div className="carousel-wrapper">
             <div className="carousel-container" ref={carouselRef}>
               {cards.map((card, index) => (
