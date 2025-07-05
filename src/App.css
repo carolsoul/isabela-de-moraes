@@ -517,7 +517,7 @@ ul li{
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   height: 110vh;
 }
 
@@ -557,8 +557,10 @@ ul li{
 footer{
   font-family: var(--body-font);
   text-transform: uppercase;
-  text-align: start;
+  text-align: center;
   font-size: 0.8rem;
+  position: relative;
+  top: 150px;
 }
 
 @media (min-width: 1024px) {
