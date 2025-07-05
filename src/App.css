@@ -323,6 +323,7 @@ ul li{
   padding: 0.3rem 1.5rem;
   border-radius: 50px;
   background-color: var(--red);
+  margin-top: 0.5rem;
   width: fit-content;
 }
 
@@ -408,6 +409,7 @@ ul li{
   background-color: var(--blue);
   width: fit-content;
   margin-left: auto;
+  margin-top: 0.5rem;
 }
 
 .project-section{
@@ -416,7 +418,6 @@ ul li{
   overflow-x: hidden;
   padding: 0 !important; 
 }
-
 .project-section h2{
   font-family: var(--title-font);
   font-size: 3rem;
@@ -456,8 +457,8 @@ ul li{
   scroll-behavior: smooth;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE/Edge */
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .carousel-container::-webkit-scrollbar {
@@ -466,7 +467,7 @@ ul li{
 
 .card {
   flex: 0 0 auto;
-  width: 240px;
+  width: 270px;
   padding: 16px;
 }
 
@@ -480,7 +481,7 @@ ul li{
   margin: 12px 0 4px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #222;
+  color: var(--yellow);
   font-family: var(--title-font);
 }
 
@@ -488,34 +489,24 @@ ul li{
   margin: 0 0 8px;
   font-weight: 500;
   font-size: 1rem;
-  color: #333;
+  color: #cacaca;
   font-family: var(--body-font);
 }
 
 .card h5{
-  font-weight: 400;
+  font-weight: 200;
   font-family: var(--body-font);
   color: white;
+  text-transform: none;
 }
 
 .projects-article {
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: auto;
+  background-color: #000000;
 }
 
-.background-blur {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  filter: blur(10px);
-  z-index: 0;
-  transition: background-image 0.5s ease;
-}
 
 .projects-article > *:not(.background-blur) {
   position: relative;
@@ -669,8 +660,8 @@ footer{
 
   .carousel-container{
     gap: 100px;
-    padding-left: 25rem;
-    padding-right: 25rem;
+    padding-left: 2rem;
+    padding-right: 4rem;
   }
 
   .carousel-wrapper{

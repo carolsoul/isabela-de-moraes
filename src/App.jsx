@@ -20,21 +20,21 @@ function App() {
 
   const cards = [
     {
-      title: 'Ativação Truck BioAge Skincare',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      title: 'Bioage Truck Skincare',
+      subtitle: 'Ativação de marca em parque',
+      description: 'Ativação da linha de hidratação facial da BioAge em formato lúdico, com truck personalizado, roleta de brindes, testes de hidratação e massagens faciais. A ação contou com presença de influencers, distribuição de sorvetes saudáveis e ambientação leve, conectando produto, verão e bem-estar.',
       img: '/bioage.png',
     },
     {
       title: 'Cafeteria Conceito - Brasil Cacau',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      subtitle: 'PVD',
+      description: 'Projeto de ponto de venda que posiciona a marca em um novo ambiente. A cafeteria conceito oferece experiência acolhedora com cafés inspirados nos chocolates Brasil Cacau, espaços para leitura, descanso e encontros — gerando valor agregado ao consumo.',
       img: '/brasilcacau.png',
     },
     {
       title: 'Encontro Corporativo Daiichi Sankyo',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      subtitle: 'Conceito e cenografia',
+      description: 'Criação de conceito e cenografia inspirados na cultura japonesa e no Kaizen, valorizando o desenvolvimento contínuo das equipes. O ambiente foi pensado para reforçar os valores da marca em um encontro interno com colaboradores.',
       img: '/daiichi.png',
     },
     {
@@ -349,13 +349,6 @@ function App() {
         <p>Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, <span>do planejamento à execução.</span></p>
 
         <article className="projects-article">
-          {/* imagem de fundo com blur */}
-          <div
-            className="background-blur"
-            style={{
-              backgroundImage: `url(${currentCard.img})`
-            }}
-          />
 
           <div className="title">
           <h2>Projetos</h2>
