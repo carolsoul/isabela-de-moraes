@@ -39,20 +39,20 @@ function App() {
     },
     {
       title: 'Estande Bettanin',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      subtitle: 'Cenografia para feira de varejo',
+      description: 'Na maior feira de varejo do país, criamos um estande que destacou os principais produtos da Bettanin — vassouras, rodos e sacos de lixo — de forma lúdica e inovadora. Vitrines dinâmicas, cores vibrantes e totens com gamificação virtual ajudaram a traduzir a essência da marca no espaço.',
       img: '/bettanin.png',
     },
     {
       title: 'Evento L´oréal Brandstorm ',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      subtitle: 'Ativação interna e ambientação',
+      description: 'Empregabilidade e inovação são o foco deste projeto. A sede da marca foi ambientada com estandes, totens, adesivos vinílicos e espaços instagramáveis, além de estrutura para premiação — tudo pensado para engajar os estudantes participantes.',
       img: '/loreal.png',
     },
     {
       title: 'Tour e Workshop Fábrica Celmar',
-      subtitle: 'Subtítulo',
-      description: 'Descrição rápida do projeto',
+      subtitle: 'Transformação de espaço e experiência de marca',
+      description: 'Como transformar um galpão industrial em uma exposição? Com esse desafio, delimitamos o ambiente com paletes, criando uma área de exibição para revestimentos, pisos e móveis da marca. A experiência foi enriquecida com moodboards sugerindo aplicações dos materiais e um tour guiado para arquitetos, começando por um pórtico com retratos e a história da Celmar.',
       img: '/celmar.png',
     },
   ]
