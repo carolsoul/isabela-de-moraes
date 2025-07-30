@@ -299,7 +299,7 @@ function App() {
           <div className="exp" id='exp1'>
             <h3>Planejamento Criativo Júnior</h3>
             <h4>Agência Fuego</h4>
-            <h5>Set 2024 - Atual</h5>
+            <h5>Set 2024 - Jul 2025</h5>
           </div>
         
           <div className="exp" id='exp2'>
