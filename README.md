@@ -4,6 +4,7 @@ Este projeto é uma landing page pessoal construída com **React**, com foco em 
 
 O objetivo é apresentar a trajetória profissional e projetos de forma dinâmica e criativa, integrando conceitos de **planejamento criativo**, **publicidade** e **live marketing**.
 
+- [Link do Projeto hospedado](https://isabela-de-moraes.netlify.app/)
 ---
 
 ## 🚀 Funcionalidades
