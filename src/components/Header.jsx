@@ -4,9 +4,9 @@ import './Header.css';
 
 const NAV = [
   { label: 'sobre', href: '#sobre' },
-  { label: 'serviços', href: '#servicos' },
-  { label: 'experiência', href: '#experiencia' },
   { label: 'projetos', href: '#projetos' },
+  { label: 'vídeos', href: '#videos' },
+  { label: 'serviços', href: '#servicos' },
   { label: 'contato', href: '#contato' },
 ];
 
@@ -18,6 +18,7 @@ const LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   const timelineRef = useRef(null);
@@ -46,6 +47,14 @@ export default function Header() {
     }, menu);
 
     return () => ctx.revert();
+  }, []);
+
+  // Depois do Hero, o header vira uma pílula escura flutuante.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.75);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   useEffect(() => {
@@ -79,7 +88,7 @@ export default function Header() {
 
   return (
     <>
-      <header className={`site-header${open ? ' is-open' : ''}`}>
+      <header className={`site-header${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
         <a href="#inicio" className="brand" onClick={close} aria-label="Isabela Moraes, voltar ao início">
           isabela<span className="brand-tag">[moraes]</span>
         </a>

@@ -11,11 +11,10 @@ O objetivo é apresentar a trajetória profissional e projetos de forma dinâmic
 
 - 🎬 Intro com cortina preta em 7 colunas (GSAP), exibida só na primeira visita da sessão
 - ✨ Hero tipográfico animado: "isa [imagem] bela" com as imagens dos projetos em loop
-- 🧭 Header fixo com menu em tela cheia
-- 🌀 Animações dinâmicas com `GSAP ScrollTrigger`
+- 🧭 Header fixo que vira uma pílula escura ao rolar, com menu em tela cheia
+- 🖼️ Cards de projetos com etiqueta da marca, categoria e descrição
+- 🎞️ Faixa horizontal de vídeos fixada no scroll (`GSAP ScrollTrigger`)
 - 💡 Destaque para áreas de atuação em publicidade
-- 🎓 Seção de experiências e qualificações
-- 🖼️ Galeria horizontal com projetos realizados
 - 📩 Sessão de contato com link para e-mail e WhatsApp
 - 📱 Design responsivo
 
