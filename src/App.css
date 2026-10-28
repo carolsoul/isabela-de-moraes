@@ -170,246 +170,6 @@ ul li{
   width: 100%;
 }
 
-
-.exp-section{
-  background-color: black;
-  color: white;
-  height: auto;
-  overflow-x: hidden;
-}
-
-.exp-section h2{
-  font-family: var(--title-font);
-  font-size: 3rem;
-  padding: 2rem 0;
-  text-transform: uppercase;
-  font-weight: 900;
-  text-align: start;
-}
-
-.exp-container{
-  display: flex;
-  flex-direction: column;
-  gap: 5rem;
-  padding: 2rem 0 10rem 0;
-}
-
-.exp{
-  font-family: var(--body-font);
-}
-
-.exp h3{
-  font-family: var(--title-font);
-  font-size: 1.5rem;
-  color: white;
-  padding-bottom: 2rem;
-  text-transform: uppercase;
-}
-
-.exp h4{
-  font-family: var(--body-font);
-  font-size: 0.9rem;
-  color: white;
-  font-weight: 300;
-}
-
-.exp h5{
-  font-family: var(--body-font);
-  font-size: 0.8rem;
-  color: black;
-  padding: 0.3rem 1.5rem;
-  border-radius: 50px;
-  background-color: var(--red);
-  margin-top: 0.5rem;
-  width: fit-content;
-}
-
-#exp1, #exp3{
-  border-left: 1px solid white;
-  padding-left: 2rem;
-}
-
-#exp1 h5, #exp3 h5{
-  margin-left: auto;
-}
-
-#exp2, #exp4{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  border-right: 1px solid white;
-  padding-right: 2rem;
-}
-
-#exp2 h3, #exp4 h3{
-  text-align: end;
-}
-
-#exp2 h5, #exp4 h5{
-  margin-right: auto;
-}
-
-.educ-section{
-  background-color: white;
-  overflow-x: hidden;
-  height: auto;
-}
-
-.educ-section h2{
-  font-family: var(--title-font);
-  font-size: 3rem;
-  padding: 2rem 0;
-  text-transform: uppercase;
-  font-weight: 900;
-  text-align: start;
-}
-
-.educ-container{
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 1rem 0 10rem 0;
-}
-
-.educ{
-  font-family: var(--body-font);
-  border-top: 1px solid black;
-  padding-top: 2rem;
-}
-
-#educ2{
-  border-bottom: 1px solid black;
-  padding-bottom: 2rem;
-}
-
-.educ h3{
-  font-family: var(--title-font);
-  font-size: 1.5rem;;
-  padding-bottom: 0.5rem;
-  text-transform: uppercase;
-  width: 18rem;
-}
-
-.educ h4{
-  font-family: var(--body-font);
-  font-size: 0.9rem;
-  font-weight: 400;
-  width: 7rem;
-}
-
-.educ h5{
-  font-family: var(--body-font);
-  font-size: 0.8rem;
-  color: white;
-  padding: 0.3rem 1.5rem;
-  border-radius: 50px;
-  background-color: var(--blue);
-  width: fit-content;
-  margin-left: auto;
-  margin-top: 0.5rem;
-}
-
-.project-section{
-  background-color: white;
-  height: auto;
-  overflow-x: hidden;
-  padding: 0 !important; 
-}
-.project-section h2{
-  font-family: var(--title-font);
-  font-size: 3rem;
-  color: white;
-  padding: 2rem 0;
-  text-transform: uppercase;
-  font-weight: 900;
-  text-align: center;
-  padding-top: 4rem;
-}
-
-.project-section p{
-  font-family: var(--body-font);
-  font-size: 2rem;
-  color: black;
-  font-weight: 900;
-  width: 18rem;
-  padding: 10rem 2rem;
-}
-
-.project-section span{
-  font-family: var(--body-font);
-  font-weight: 300;
-}
-
-.carousel-wrapper {
-  width: 100%;
-  overflow: hidden;
-  padding: 2rem 0;
-  text-transform: uppercase;
-}
-
-.carousel-container {
-  display: flex;
-  gap: 30px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.carousel-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-.card {
-  flex: 0 0 auto;
-  width: 270px;
-  padding: 16px;
-}
-
-.card img {
-  width: 240px;
-  object-fit: cover;
-  height: 200px;
-}
-
-.card h3 {
-  margin: 12px 0 4px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--yellow);
-  font-family: var(--title-font);
-}
-
-.card h4 {
-  margin: 0 0 8px;
-  font-weight: 500;
-  font-size: 1rem;
-  color: #cacaca;
-  font-family: var(--body-font);
-}
-
-.card h5{
-  font-weight: 200;
-  font-family: var(--body-font);
-  color: white;
-  text-transform: none;
-}
-
-.projects-article {
-  position: relative;
-  overflow: hidden;
-  height: auto;
-  background-color: #000000;
-}
-
-
-.projects-article > *:not(.background-blur) {
-  position: relative;
-  z-index: 1;
-}
-
 .contact-section{
   background-color: white;
   display: flex;
@@ -509,12 +269,7 @@ footer{
     font-size: 1.5rem;
   }
 
-  .project-section p{
-    padding: 10rem 8rem;
-    width: 30rem;
-  }
-
-  .services-section h2, .exp-section h2, .educ-section h2, .project-section h2{
+  .services-section h2{
     font-size: 5rem;
     animation-duration: 5s;
   }
@@ -525,55 +280,6 @@ footer{
 
   .service{
     gap: 1.5rem;
-  }
-
-  .exp-container{
-    gap: 10rem;
-    padding: 4rem 0 5rem 0;
-
-  }
-
-  .educ-container{
-    padding: 4rem 0 10rem 0;
-  }
-
-  .exp h3, .educ h3, .card h3{
-    font-size: 2.5rem;
-  }
-
-  .exp h4, .educ h4, .card h4{
-    font-size: 1.5rem;
-  }
-
-  .educ h4{
-    width: 15rem;
-  }
-
-  .exp h5, .educ h5, .card h5{
-    font-size: 1.2rem;
-  }
-
-  .projects-article{
-    height: auto;
-  }
-
-  .carousel-container{
-    gap: 100px;
-    padding-left: 2rem;
-    padding-right: 4rem;
-  }
-
-  .carousel-wrapper{
-    padding: 4rem 0;
-  }
-
-  .card{
-    width: 500px;
-  }
-
-  .card img{
-    width: 500px;
-    height: 300px;
   }
 
   .contact-section{
@@ -619,22 +325,9 @@ footer{
     bottom: 15rem;
   }
 
-  .services-section h2, .exp-section h2, .educ-section h2, .project-section h2{
+  .services-section h2{
     font-size: 5rem;
     animation-duration: 4s;
-  }
-
-  .projects-article{
-    height: auto;
-  }
-
-  .card{
-    width: 350px;
-  }
-
-  .card img{
-    width: 350px;
-    height: 200px;
   }
 
   .contact-section{
@@ -666,11 +359,6 @@ footer{
   .bio-section small{
     font-size: 1.8rem;
   }
-
-  .project-section p{
-    width: 40rem;
-    font-size: 3.5rem;
-  }
 }
 
 @media (min-width: 320px) and (max-width: 374px){
@@ -694,23 +382,5 @@ footer{
   }
   .services-section ul{
     width: 250px;
-  }
-  .exp-container{
-    padding-bottom: 5rem;
-  }
-  .exp h3{
-    font-size: 1.2rem;
-  }
-  .exp h4{
-    padding-bottom: 1.5rem;
-  }
-  .exp h5{
-    font-size: 0.7rem;
-  }
-  .educ h3{
-    width: 15rem;
-  }
-  .educ h4{
-    padding-bottom: 1rem;
   }
 }
