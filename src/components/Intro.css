@@ -1,0 +1,16 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+}
+
+.intro-col {
+  flex: 1 1 0;
+  height: 100%;
+  /* sobreposição de 1px evita frestas entre as colunas em telas com DPR fracionado */
+  margin-right: -1px;
+  background: #000;
+  transition: none;
+  will-change: transform;
+}

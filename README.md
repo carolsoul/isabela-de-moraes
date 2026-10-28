@@ -9,7 +9,9 @@ O objetivo é apresentar a trajetória profissional e projetos de forma dinâmic
 
 ## 🚀 Funcionalidades
 
-- ✨ Scroll parallax com título animado
+- 🎬 Intro com cortina preta em 7 colunas (GSAP), exibida só na primeira visita da sessão
+- ✨ Hero tipográfico animado: "isa [imagem] bela" com as imagens dos projetos em loop
+- 🧭 Header fixo com menu em tela cheia
 - 🌀 Animações dinâmicas com `GSAP ScrollTrigger`
 - 💡 Destaque para áreas de atuação em publicidade
 - 🎓 Seção de experiências e qualificações
@@ -42,4 +44,4 @@ cd isabela-de-moraes
 npm install
 
 # Rode a aplicação
-npm start
+npm run dev
