@@ -12,7 +12,7 @@ O objetivo é apresentar a trajetória profissional e projetos de forma dinâmic
 - 🎬 Intro com cortina preta em 7 colunas (GSAP), exibida só na primeira visita da sessão
 - ✨ Hero tipográfico animado: "isa [imagem] bela" com as imagens dos projetos em loop
 - 🧭 Header fixo que vira uma pílula escura ao rolar, com menu em tela cheia
-- 👋 Sobre com o momento atual, competências e trajetória
+- 👋 Sobre enxuto na home e página completa em `/sobre` (foto, trajetória e competências)
 - 🖼️ Trabalhos selecionados em cards, cada um com página própria (`/trabalhos/:slug`): desafio, ideia, papel e impacto
 - 🎓 Destaque para o TCC "Adidas x Farm Rio"
 - 🎞️ Faixa horizontal de vídeos fixada no scroll (`GSAP ScrollTrigger`)
@@ -25,12 +25,14 @@ O objetivo é apresentar a trajetória profissional e projetos de forma dinâmic
 - `src/data/videos.js`: vídeos da faixa horizontal
 - `src/data/contact.js`: e-mail, WhatsApp, LinkedIn, currículo e seções do menu
 - `src/components/Thesis.jsx`: texto e link do TCC
+- `src/pages/AboutPage.jsx`: conteúdo da página Sobre
 
 ---
 
 ## 🛠️ Tecnologias
 
 - [React](https://react.dev/) + [React Router](https://reactrouter.com/)
+- [React Bits](https://reactbits.dev/) (componentes em `src/components/reactbits`)
 - [GSAP + ScrollTrigger](https://greensock.com/scrolltrigger/)
 - HTML5 + CSS3 (customizado)
 - JavaScript (ES6+)

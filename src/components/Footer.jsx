@@ -1,41 +1,49 @@
-import { useRef } from 'react';
 import { Link } from 'react-router';
-import { contact, sections } from '../data/contact';
-import { useReveal } from '../lib/useReveal';
+import { contact, sectionLink, sections } from '../data/contact';
+import AnimatedContent from './reactbits/AnimatedContent';
+import Magnet from './reactbits/Magnet';
+import ShinyText from './reactbits/ShinyText';
 import './Footer.css';
 
-export default function Footer() {
-  const rootRef = useRef(null);
-  useReveal(rootRef);
+// O TCC já tem o próprio destaque na home, então fica fora da navegação do rodapé.
+const FOOTER_SECTIONS = sections.filter((section) => section.id !== 'tcc');
 
+export default function Footer() {
   return (
-    <footer className="site-footer" id="contato" ref={rootRef}>
-      <div className="footer-cta" data-reveal>
+    <footer className="site-footer" id="contato">
+      <AnimatedContent className="footer-cta" distance={50} duration={1}>
         <span className="footer-label">(contato)</span>
         <h2 className="footer-title">
-          Tem um projeto, uma vaga ou uma ideia? <span className="footer-highlight">Vamos conversar.</span>
+          Tem um projeto, uma vaga ou uma ideia?{' '}
+          <span className="footer-highlight">
+            <ShinyText text="Vamos conversar." color="#f2f2f2" shineColor="#b2b282" speed={3} delay={2} />
+          </span>
         </h2>
         <p className="footer-text">
           Respondo por e-mail, WhatsApp ou LinkedIn, o que for mais prático pra você.
         </p>
 
         <div className="footer-actions">
-          <a className="footer-button is-primary" href={`mailto:${contact.email}`}>
-            Enviar e-mail <span aria-hidden="true">→</span>
-          </a>
-          <a className="footer-button" href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
-            WhatsApp <span aria-hidden="true">→</span>
-          </a>
+          <Magnet padding={60} magnetStrength={3}>
+            <a className="footer-button is-primary" href={`mailto:${contact.email}`}>
+              Enviar e-mail <span aria-hidden="true">→</span>
+            </a>
+          </Magnet>
+          <Magnet padding={60} magnetStrength={3}>
+            <a className="footer-button" href={contact.whatsapp} target="_blank" rel="noopener noreferrer">
+              WhatsApp <span aria-hidden="true">→</span>
+            </a>
+          </Magnet>
         </div>
-      </div>
+      </AnimatedContent>
 
-      <div className="footer-columns" data-reveal>
+      <AnimatedContent className="footer-columns" distance={40} stagger={0.1}>
         <nav aria-label="Rodapé">
           <h3>Navegação</h3>
           <ul>
-            {sections.map((section) => (
+            {FOOTER_SECTIONS.map((section) => (
               <li key={section.id}>
-                <Link to={{ pathname: '/', hash: `#${section.id}` }}>{section.label}</Link>
+                <Link to={sectionLink(section)}>{section.label}</Link>
               </li>
             ))}
           </ul>
@@ -73,7 +81,7 @@ export default function Footer() {
           </p>
           <p className="footer-location">{contact.location}, Brasil</p>
         </div>
-      </div>
+      </AnimatedContent>
 
       <p className="footer-wordmark" aria-hidden="true">
         isabela<span>[moraes]</span>

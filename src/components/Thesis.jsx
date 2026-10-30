@@ -1,5 +1,6 @@
-import { useRef } from 'react';
-import { useReveal } from '../lib/useReveal';
+import AnimatedContent from './reactbits/AnimatedContent';
+import ShinyText from './reactbits/ShinyText';
+import Magnet from './reactbits/Magnet';
 import './Thesis.css';
 
 // Rascunho: descrição e temas escritos a partir do título do TCC — validar com a
@@ -13,14 +14,13 @@ const THESIS = {
 };
 
 export default function Thesis() {
-  const rootRef = useRef(null);
-  useReveal(rootRef);
-
   return (
-    <section className="thesis" id="tcc" ref={rootRef} aria-labelledby="tcc-titulo">
-      <div className="thesis-card" data-reveal>
+    <section className="thesis" id="tcc" aria-labelledby="tcc-titulo">
+      <AnimatedContent className="thesis-card" distance={80} scale={0.96} duration={1.1}>
         <div className="thesis-top">
-          <span className="thesis-label">Destaque · TCC</span>
+          <span className="thesis-label">
+            <ShinyText text="Destaque · TCC" color="#0a0a0a" shineColor="#f2f2f2" speed={2.5} delay={1.5} />
+          </span>
           <p className="thesis-meta">{THESIS.meta.join(' · ')}</p>
         </div>
 
@@ -39,15 +39,17 @@ export default function Thesis() {
             </ul>
 
             {THESIS.link ? (
-              <a className="thesis-cta" href={THESIS.link} target="_blank" rel="noopener noreferrer">
-                Ler o trabalho <span aria-hidden="true">↗</span>
-              </a>
+              <Magnet padding={60} magnetStrength={3}>
+                <a className="thesis-cta" href={THESIS.link} target="_blank" rel="noopener noreferrer">
+                  Ler o trabalho <span aria-hidden="true">↗</span>
+                </a>
+              </Magnet>
             ) : (
               <span className="thesis-cta is-soon">Trabalho completo em breve</span>
             )}
           </div>
         </div>
-      </div>
+      </AnimatedContent>
     </section>
   );
 }

@@ -3,14 +3,14 @@ import { Link } from 'react-router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '../data/projects';
-import { useReveal } from '../lib/useReveal';
+import AnimatedContent from './reactbits/AnimatedContent';
+import SplitText from './reactbits/SplitText';
 import './Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const rootRef = useRef(null);
-  useReveal(rootRef);
 
   // a imagem de cada card "assenta" (zoom out leve) enquanto o card cruza a tela
   useLayoutEffect(() => {
@@ -35,37 +35,41 @@ export default function Projects() {
 
   return (
     <section className="projects" id="trabalhos" ref={rootRef} aria-labelledby="trabalhos-titulo">
-      <div className="projects-head" data-reveal>
+      <div className="projects-head">
         <h2 className="projects-title" id="trabalhos-titulo">
-          Trabalhos selecionados
+          <SplitText tag="span" text="Trabalhos selecionados" splitType="chars" delay={25} textAlign="left" />
         </h2>
-        <p className="projects-intro">
-          Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, do
-          planejamento à execução.
-        </p>
+        <AnimatedContent distance={30} delay={0.2}>
+          <p className="projects-intro">
+            Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, do
+            planejamento à execução.
+          </p>
+        </AnimatedContent>
       </div>
 
       <ul className="projects-grid">
         {projects.map((project) => (
-          <li key={project.slug} data-reveal>
-            <Link className="project-card" to={`/trabalhos/${project.slug}`}>
-              <div className="project-media">
-                <img
-                  src={project.img}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  style={{ objectPosition: project.focus }}
-                />
-                <span className="project-tag">{project.brand}</span>
-              </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-category">{project.category}</p>
-              <p className="project-summary">{project.summary}</p>
-              <span className="project-more">
-                Ver projeto <span aria-hidden="true">→</span>
-              </span>
-            </Link>
+          <li key={project.slug}>
+            <AnimatedContent distance={70} duration={1}>
+              <Link className="project-card" to={`/trabalhos/${project.slug}`}>
+                <div className="project-media">
+                  <img
+                    src={project.img}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    style={{ objectPosition: project.focus }}
+                  />
+                  <span className="project-tag">{project.brand}</span>
+                </div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-category">{project.category}</p>
+                <p className="project-summary">{project.summary}</p>
+                <span className="project-more">
+                  Ver projeto <span aria-hidden="true">→</span>
+                </span>
+              </Link>
+            </AnimatedContent>
           </li>
         ))}
       </ul>
