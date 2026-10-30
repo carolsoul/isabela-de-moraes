@@ -15,28 +15,26 @@
   color: var(--paper);
 }
 
-.thesis-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem 2rem;
+.thesis-label {
+  align-self: flex-start;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: var(--olive-light);
   font-family: var(--font-mono);
   font-size: 0.72rem;
+  line-height: 1;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
-.thesis-label {
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  background: var(--olive-light);
-  color: var(--ink);
-  line-height: 1;
-}
-
 .thesis-meta {
-  align-self: center;
-  color: rgba(242, 242, 242, 0.75);
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(242, 242, 242, 0.7);
 }
 
 .thesis-title {

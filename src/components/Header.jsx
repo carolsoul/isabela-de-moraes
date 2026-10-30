@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { gsap } from 'gsap';
-import { contact, sections } from '../data/contact';
+import { contact, sectionLink, sections } from '../data/contact';
 import './Header.css';
 
 const LINKS = [
@@ -89,7 +89,7 @@ export default function Header() {
           onClick={close}
           aria-label="Isabela Moraes, voltar ao início"
         >
-          isabela<span className="brand-tag">[moraes]</span>
+          isabela<span className="brand-tag">moraes</span>
         </Link>
 
         <button
@@ -112,7 +112,7 @@ export default function Header() {
           <ul className="menu-list">
             {sections.map((section, index) => (
               <li key={section.id}>
-                <Link className="menu-link" to={{ pathname: '/', hash: `#${section.id}` }} onClick={close}>
+                <Link className="menu-link" to={sectionLink(section)} onClick={close}>
                   <span className="menu-index">{String(index + 1).padStart(2, '0')}</span>
                   {section.label}
                 </Link>

@@ -1,6 +1,7 @@
-import { useRef } from 'react';
 import { Link } from 'react-router';
-import { useReveal } from '../lib/useReveal';
+import Annotation from './Annotation';
+import AnimatedContent from './reactbits/AnimatedContent';
+import SplitText from './reactbits/SplitText';
 import './Services.css';
 
 const SERVICES = [
@@ -32,35 +33,39 @@ const SERVICES = [
 ];
 
 export default function Services() {
-  const rootRef = useRef(null);
-  useReveal(rootRef);
-
   return (
-    <section className="services" id="servicos" ref={rootRef} aria-labelledby="servicos-titulo">
-      <div className="services-head" data-reveal>
-        <span className="section-label">(serviços)</span>
+    <section className="services" id="servicos" aria-labelledby="servicos-titulo">
+      <div className="services-head">
         <h2 className="services-title" id="servicos-titulo">
-          Serviços
+          <SplitText tag="span" text="Serviços" splitType="chars" delay={40} textAlign="left" />
         </h2>
-        <p className="services-intro">Da estratégia ao vídeo final: como posso ajudar a sua marca.</p>
+        <AnimatedContent distance={30} delay={0.2}>
+          <p className="services-intro">
+            Da estratégia ao vídeo final: como posso ajudar a <Annotation type="circle">sua marca.</Annotation>
+          </p>
+        </AnimatedContent>
       </div>
 
       <ol className="services-list">
         {SERVICES.map((service, index) => (
-          <li className="service" key={service.name} data-reveal>
-            <span className="service-index">{String(index + 1).padStart(2, '0')}</span>
-            <h3 className="service-name">{service.name}</h3>
-            <p className="service-description">{service.description}</p>
+          <li key={service.name}>
+            <AnimatedContent className="service" distance={40} duration={0.9}>
+              <span className="service-index">{String(index + 1).padStart(2, '0')}</span>
+              <h3 className="service-name">{service.name}</h3>
+              <p className="service-description">{service.description}</p>
+            </AnimatedContent>
           </li>
         ))}
       </ol>
 
-      <p className="services-more" data-reveal>
-        Precisa de algo diferente?{' '}
-        <Link to={{ pathname: '/', hash: '#contato' }}>
-          Vamos conversar <span aria-hidden="true">→</span>
-        </Link>
-      </p>
+      <AnimatedContent distance={30}>
+        <p className="services-more">
+          Precisa de algo diferente?{' '}
+          <Link to={{ pathname: '/', hash: '#contato' }}>
+            Vamos conversar <span aria-hidden="true">→</span>
+          </Link>
+        </p>
+      </AnimatedContent>
     </section>
   );
 }

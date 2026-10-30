@@ -8,12 +8,14 @@ export const contact = {
   location: 'Guarulhos, SP',
 };
 
-// Seções da home, na ordem em que aparecem (usado no menu e no footer).
+// Seções do site, na ordem da home (usado no menu e no footer). "sobre" leva à
+// página completa; as demais são âncoras da home.
 export const sections = [
-  { label: 'sobre', id: 'sobre' },
+  { label: 'sobre', id: 'sobre', path: '/sobre' },
   { label: 'trabalhos', id: 'trabalhos' },
-  { label: 'tcc', id: 'tcc' },
   { label: 'vídeos', id: 'videos' },
   { label: 'serviços', id: 'servicos' },
   { label: 'contato', id: 'contato' },
 ];
+
+export const sectionLink = (section) => section.path ?? { pathname: '/', hash: `#${section.id}` };

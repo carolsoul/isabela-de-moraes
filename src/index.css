@@ -57,14 +57,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* rótulo de seção: "(sobre)", "(serviços)"… */
-.section-label {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--olive);
+/* SplitText (React Bits) recorta o texto durante a entrada: folga para acentos e cedilha */
+.split-parent {
+  padding-block: 0.12em;
+  margin-block: -0.12em;
 }
 
 .visually-hidden {

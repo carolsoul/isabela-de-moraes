@@ -3,7 +3,7 @@ import { useLocation } from 'react-router';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Intro from '../components/Intro';
 import Hero from '../components/Hero';
-import About from '../components/About';
+import AboutTeaser from '../components/AboutTeaser';
 import Projects from '../components/Projects';
 import Thesis from '../components/Thesis';
 import VideoReel from '../components/VideoReel';
@@ -34,7 +34,7 @@ export default function HomePage() {
 
       <main>
         <Hero play={heroReady} />
-        <About />
+        <AboutTeaser />
         <Projects />
         <Thesis />
         <VideoReel />

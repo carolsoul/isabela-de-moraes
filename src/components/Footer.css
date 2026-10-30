@@ -10,24 +10,16 @@
   text-decoration: none;
 }
 
-.footer-label {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--olive-light);
-}
-
 .footer-title {
   max-width: 17ch;
-  margin-top: 1.5rem;
   font-size: clamp(2.4rem, 10vw, 6.5rem);
   font-weight: 600;
   line-height: 0.98;
   letter-spacing: -0.045em;
 }
 
-.footer-highlight {
+/* o sublinhado vai no próprio ShinyText: decorações não descem para inline-blocks */
+.footer-highlight .shiny-text {
   text-decoration: underline;
   text-decoration-color: var(--olive-light);
   text-decoration-thickness: 0.07em;
