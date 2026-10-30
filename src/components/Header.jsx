@@ -89,7 +89,7 @@ export default function Header() {
           onClick={close}
           aria-label="Isabela Moraes, voltar ao início"
         >
-          isabela<span className="brand-tag">[moraes]</span>
+          isabela<span className="brand-tag">moraes</span>
         </Link>
 
         <button

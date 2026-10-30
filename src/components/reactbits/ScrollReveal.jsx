@@ -76,6 +76,7 @@ const ScrollReveal = ({
   highlightColor = '',
   containerClassName = '',
   textClassName = '',
+  decorateWord,
   rotationEnd = 'bottom bottom',
   wordAnimationEnd = 'bottom bottom'
 }) => {
@@ -89,24 +90,25 @@ const ScrollReveal = ({
 
   const splitText = useMemo(() => {
     if (text === null) return null;
-    return text.split(/(\s+)/).map((word, index) =>
-      word.trim() === '' ? (
-        word
-      ) : (
+    return text.split(/(\s+)/).map((word, index) => {
+      if (word.trim() === '') return word;
+      const pieces =
+        splitBy === 'chars' ? (
+          Array.from(word).map((char, charIndex) => (
+            <span className="scroll-reveal-piece" key={charIndex}>
+              {char}
+            </span>
+          ))
+        ) : (
+          <span className="scroll-reveal-piece">{word}</span>
+        );
+      return (
         <span className="scroll-reveal-word" key={index}>
-          {splitBy === 'chars' ? (
-            Array.from(word).map((char, charIndex) => (
-              <span className="scroll-reveal-piece" key={charIndex}>
-                {char}
-              </span>
-            ))
-          ) : (
-            <span className="scroll-reveal-piece">{word}</span>
-          )}
+          {decorateWord?.(word, pieces) ?? pieces}
         </span>
-      )
-    );
-  }, [text, splitBy]);
+      );
+    });
+  }, [text, splitBy, decorateWord]);
 
   const [mounted, setMounted] = useState(false);
 

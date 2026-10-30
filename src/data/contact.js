@@ -13,7 +13,6 @@ export const contact = {
 export const sections = [
   { label: 'sobre', id: 'sobre', path: '/sobre' },
   { label: 'trabalhos', id: 'trabalhos' },
-  { label: 'tcc', id: 'tcc' },
   { label: 'vídeos', id: 'videos' },
   { label: 'serviços', id: 'servicos' },
   { label: 'contato', id: 'contato' },

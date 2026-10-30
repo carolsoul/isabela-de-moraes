@@ -1,4 +1,5 @@
 import { Link } from 'react-router';
+import Annotation from './Annotation';
 import AnimatedContent from './reactbits/AnimatedContent';
 import SplitText from './reactbits/SplitText';
 import './Services.css';
@@ -35,12 +36,13 @@ export default function Services() {
   return (
     <section className="services" id="servicos" aria-labelledby="servicos-titulo">
       <div className="services-head">
-        <span className="section-label">(serviços)</span>
         <h2 className="services-title" id="servicos-titulo">
           <SplitText tag="span" text="Serviços" splitType="chars" delay={40} textAlign="left" />
         </h2>
         <AnimatedContent distance={30} delay={0.2}>
-          <p className="services-intro">Da estratégia ao vídeo final: como posso ajudar a sua marca.</p>
+          <p className="services-intro">
+            Da estratégia ao vídeo final: como posso ajudar a <Annotation type="circle">sua marca.</Annotation>
+          </p>
         </AnimatedContent>
       </div>
 

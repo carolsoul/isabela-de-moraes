@@ -63,16 +63,6 @@ body {
   margin-block: -0.12em;
 }
 
-/* rótulo de seção: "(serviços)", "(contato)"… */
-.section-label {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  color: var(--olive);
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;

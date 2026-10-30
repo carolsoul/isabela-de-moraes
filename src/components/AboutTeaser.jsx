@@ -1,8 +1,24 @@
 import { Link } from 'react-router';
+import Annotation from './Annotation';
 import ScrollReveal from './reactbits/ScrollReveal';
 import SplitText from './reactbits/SplitText';
 import Magnet from './reactbits/Magnet';
 import './AboutTeaser.css';
+
+// Palavras da frase que ganham traço à mão (desenhado conforme a rolagem).
+const MARKS = {
+  'comunicação,': { type: 'underline', start: 'top 80%', end: 'top 50%' },
+  'estratégia.': { type: 'circle', start: 'top 80%', end: 'top 42%' },
+};
+
+const decorateWord = (word, content) => {
+  const mark = MARKS[word];
+  return mark ? (
+    <Annotation type={mark.type} start={mark.start} end={mark.end}>
+      {content}
+    </Annotation>
+  ) : null;
+};
 
 // Sobre da home: só a frase de apresentação e o convite para a página completa.
 export default function AboutTeaser() {
@@ -15,6 +31,7 @@ export default function AboutTeaser() {
         blurStrength={6}
         baseRotation={2}
         highlightColor="#505040"
+        decorateWord={decorateWord}
         wordAnimationEnd="top 30%"
         rotationEnd="top 30%"
       >

@@ -5,8 +5,9 @@
 
 .reel {
   position: relative;
+  /* 100vh é a maior altura da tela no celular (barra do navegador recolhida):
+     com 100svh sobrava uma faixa branca embaixo enquanto a faixa fica fixada */
   height: 100vh;
-  height: 100svh;
   padding: 0;
   overflow: hidden;
   background: var(--ink);
@@ -53,6 +54,8 @@
   left: 0.75rem;
   right: 0.75rem;
   bottom: 1.25rem;
+  /* acima da barra do navegador quando ela está visível */
+  bottom: calc(1.25rem + 100vh - 100dvh);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,6 +94,7 @@
     left: 1rem;
     right: 1rem;
     bottom: 1.5rem;
+    bottom: calc(1.5rem + 100vh - 100dvh);
   }
 }
 
@@ -108,5 +112,6 @@
   /* acima dos controles nativos do vídeo */
   .reel-caption {
     bottom: 4.5rem;
+    bottom: calc(4.5rem + 100vh - 100dvh);
   }
 }

@@ -10,3 +10,6 @@ variante JS + CSS, commit `e12c221`. Licença em `LICENSE.md`
 - `ShinyText`: brilho nos rótulos em destaque
 - `Magnet`: botões que "puxam" o cursor
 - `TiltedCard`: foto da página Sobre
+
+Alteração local: `ScrollReveal` ganhou a prop `decorateWord(palavra, conteúdo)`, usada para
+envolver palavras específicas (ex.: sublinhado e círculo do Sobre da home).

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '../data/projects';
+import Annotation from './Annotation';
 import AnimatedContent from './reactbits/AnimatedContent';
 import SplitText from './reactbits/SplitText';
 import './Projects.css';
@@ -41,8 +42,9 @@ export default function Projects() {
         </h2>
         <AnimatedContent distance={30} delay={0.2}>
           <p className="projects-intro">
-            Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, do
-            planejamento à execução.
+            Mais que ideias criativas, são experiências com <Annotation>propósito</Annotation> pensadas para
+            emocionar e engajar, do planejamento à execução.
+            <Annotation type="arrow" start="top 85%" end="top 45%" />
           </p>
         </AnimatedContent>
       </div>

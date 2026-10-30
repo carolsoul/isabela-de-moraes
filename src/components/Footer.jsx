@@ -5,14 +5,10 @@ import Magnet from './reactbits/Magnet';
 import ShinyText from './reactbits/ShinyText';
 import './Footer.css';
 
-// O TCC já tem o próprio destaque na home, então fica fora da navegação do rodapé.
-const FOOTER_SECTIONS = sections.filter((section) => section.id !== 'tcc');
-
 export default function Footer() {
   return (
     <footer className="site-footer" id="contato">
       <AnimatedContent className="footer-cta" distance={50} duration={1}>
-        <span className="footer-label">(contato)</span>
         <h2 className="footer-title">
           Tem um projeto, uma vaga ou uma ideia?{' '}
           <span className="footer-highlight">
@@ -41,7 +37,7 @@ export default function Footer() {
         <nav aria-label="Rodapé">
           <h3>Navegação</h3>
           <ul>
-            {FOOTER_SECTIONS.map((section) => (
+            {sections.map((section) => (
               <li key={section.id}>
                 <Link to={sectionLink(section)}>{section.label}</Link>
               </li>
@@ -84,7 +80,7 @@ export default function Footer() {
       </AnimatedContent>
 
       <p className="footer-wordmark" aria-hidden="true">
-        isabela<span>[moraes]</span>
+        isabela<span>moraes</span>
       </p>
 
       <div className="footer-bottom">
