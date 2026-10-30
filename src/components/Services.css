@@ -1,0 +1,128 @@
+.services {
+  padding: 6rem var(--gutter) 7rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.services-head {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.services-title {
+  font-size: clamp(3.5rem, 18vw, 12rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.055em;
+}
+
+.services-intro {
+  max-width: 26ch;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.services-list {
+  border-top: 1px solid rgba(10, 10, 10, 0.15);
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 2.75rem 1fr;
+  gap: 0.4rem 0.75rem;
+  padding: 1.5rem 0.25rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.15);
+  transition: background-color 0.35s ease, padding 0.35s ease;
+}
+
+.service-index {
+  padding-top: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--olive);
+}
+
+.service-name {
+  font-size: 1.55rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.service-description {
+  grid-column: 2;
+  max-width: 40ch;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+@media (hover: hover) {
+  .service:hover {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: var(--olive-wash);
+  }
+}
+
+.services-more {
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+.services-more a {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--olive-light);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.services-more a:hover {
+  text-decoration-color: var(--olive);
+}
+
+@media (min-width: 768px) {
+  .services {
+    padding: 8rem var(--gutter) 9rem;
+  }
+
+  .services-head {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    margin-bottom: 5rem;
+  }
+
+  .services-head .section-label {
+    grid-column: 1 / -1;
+  }
+
+  .services-intro {
+    font-size: clamp(1.4rem, 2.4vw, 2.25rem);
+    text-align: right;
+  }
+
+  .service {
+    grid-template-columns: 5rem minmax(0, 1fr) minmax(0, 1fr);
+    align-items: baseline;
+    padding: 2rem 0.25rem;
+  }
+
+  .service-index {
+    padding-top: 0;
+  }
+
+  .service-name {
+    font-size: clamp(1.6rem, 2.8vw, 2.6rem);
+  }
+
+  .service-description {
+    grid-column: 3;
+    font-size: 1.1rem;
+  }
+}

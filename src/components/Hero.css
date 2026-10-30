@@ -87,6 +87,7 @@
   left: 50%;
   display: block;
   width: var(--media-w);
+  max-width: none;
   height: 100%;
   margin-left: calc(var(--media-w) / -2);
   object-fit: cover;

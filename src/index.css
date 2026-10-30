@@ -2,6 +2,11 @@
   --paper: #f2f2f2;
   --paper-deep: #e6e6e6;
   --ink: #0a0a0a;
+  --ink-soft: #5c5c5c;
+  /* acentos (verde-oliva e verde claro da referência), sempre em doses pequenas */
+  --olive: #505040;
+  --olive-light: #b2b282;
+  --olive-wash: rgba(178, 178, 130, 0.18);
   --font-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Roboto Mono", ui-monospace, Menlo, monospace;
   --header-h: 64px;
@@ -15,6 +20,25 @@
   }
 }
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
 html {
   scroll-padding-top: var(--header-h);
 }
@@ -26,9 +50,21 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
+  font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
+}
+
+/* rótulo de seção: "(sobre)", "(serviços)"… */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--olive);
 }
 
 .visually-hidden {

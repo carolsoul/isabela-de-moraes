@@ -1,0 +1,145 @@
+.thesis {
+  padding: 0 var(--gutter) 6rem;
+  background: var(--paper);
+}
+
+.thesis-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  padding: 1.5rem 1.25rem 1.75rem;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--olive);
+  color: var(--paper);
+}
+
+.thesis-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.thesis-label {
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--olive-light);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.thesis-meta {
+  align-self: center;
+  color: rgba(242, 242, 242, 0.75);
+}
+
+.thesis-title {
+  font-size: clamp(3.4rem, 17vw, 13rem);
+  font-weight: 700;
+  line-height: 0.86;
+  letter-spacing: -0.055em;
+}
+
+.thesis-nowrap {
+  white-space: nowrap;
+}
+
+.thesis-x {
+  display: inline-block;
+  color: var(--olive-light);
+  font-weight: 500;
+}
+
+.thesis-bottom {
+  display: grid;
+  gap: 2rem;
+}
+
+.thesis-description {
+  max-width: 36ch;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.thesis-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.thesis-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.thesis-topics li {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(178, 178, 130, 0.5);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--olive-light);
+}
+
+.thesis-cta {
+  display: inline-flex;
+  gap: 0.5rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.thesis-cta.is-soon {
+  background: transparent;
+  border: 1px dashed rgba(242, 242, 242, 0.45);
+  color: rgba(242, 242, 242, 0.8);
+}
+
+a.thesis-cta:hover {
+  background: var(--olive-light);
+}
+
+@media (min-width: 768px) {
+  .thesis {
+    padding-bottom: 9rem;
+  }
+
+  .thesis-card {
+    gap: 4rem;
+    padding: 2rem 2rem 2.5rem;
+    border-radius: 32px;
+  }
+
+  .thesis-bottom {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 3rem;
+  }
+
+  .thesis-description {
+    font-size: 1.5rem;
+  }
+
+  .thesis-side {
+    align-items: flex-end;
+  }
+
+  .thesis-topics {
+    justify-content: flex-end;
+  }
+}

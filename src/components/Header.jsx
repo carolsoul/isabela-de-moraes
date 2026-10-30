@@ -1,19 +1,13 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { Link } from 'react-router';
 import { gsap } from 'gsap';
+import { contact, sections } from '../data/contact';
 import './Header.css';
 
-const NAV = [
-  { label: 'sobre', href: '#sobre' },
-  { label: 'projetos', href: '#projetos' },
-  { label: 'vídeos', href: '#videos' },
-  { label: 'serviços', href: '#servicos' },
-  { label: 'contato', href: '#contato' },
-];
-
 const LINKS = [
-  { label: 'Currículo', href: '/ISABELADEMORAES.pdf', external: true },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/isabelademoraes', external: true },
-  { label: 'isabelafmoraes21@gmail.com', href: 'mailto:isabelafmoraes21@gmail.com' },
+  { label: 'Currículo', href: contact.cv, external: true },
+  { label: 'LinkedIn', href: contact.linkedin, external: true },
+  { label: contact.email, href: `mailto:${contact.email}` },
 ];
 
 export default function Header() {
@@ -89,9 +83,14 @@ export default function Header() {
   return (
     <>
       <header className={`site-header${scrolled ? ' is-scrolled' : ''}${open ? ' is-open' : ''}`}>
-        <a href="#inicio" className="brand" onClick={close} aria-label="Isabela Moraes, voltar ao início">
+        <Link
+          to={{ pathname: '/', hash: '#inicio' }}
+          className="brand"
+          onClick={close}
+          aria-label="Isabela Moraes, voltar ao início"
+        >
           isabela<span className="brand-tag">[moraes]</span>
-        </a>
+        </Link>
 
         <button
           ref={buttonRef}
@@ -111,19 +110,19 @@ export default function Header() {
       <div id="site-menu" className="menu" ref={menuRef}>
         <nav aria-label="Principal">
           <ul className="menu-list">
-            {NAV.map((item, index) => (
-              <li key={item.href}>
-                <a className="menu-link" href={item.href} onClick={close}>
+            {sections.map((section, index) => (
+              <li key={section.id}>
+                <Link className="menu-link" to={{ pathname: '/', hash: `#${section.id}` }} onClick={close}>
                   <span className="menu-index">{String(index + 1).padStart(2, '0')}</span>
-                  {item.label}
-                </a>
+                  {section.label}
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="menu-meta">
-          <p>Analista de comunicação &amp; marketing — Guarulhos, SP</p>
+          <p>Analista de comunicação &amp; marketing — {contact.location}</p>
           <ul className="menu-contacts">
             {LINKS.map((link) => (
               <li key={link.href}>
