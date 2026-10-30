@@ -16,15 +16,15 @@
 
 .annotation-path {
   vector-effect: non-scaling-stroke;
-  stroke-dasharray: 1;
+  stroke-dasharray: 100;
   stroke-dashoffset: 0;
 }
 
 .annotation--underline .annotation-svg {
   left: -3%;
-  bottom: -0.2em;
+  bottom: -0.12em;
   width: 106%;
-  height: 0.3em;
+  height: 0.2em;
 }
 
 .annotation--circle .annotation-svg {

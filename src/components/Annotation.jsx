@@ -5,12 +5,12 @@ import './Annotation.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Traços "feitos à mão" em verde claro. `pathLength="1"` deixa o traço medir 1,
-// então o desenho é só o stroke-dashoffset indo de 1 a 0.
+// Traços "feitos à mão" em verde claro. `pathLength="100"` faz todo traço medir
+// 100, então o desenho é só o stroke-dashoffset indo de 100 a 0.
 const SHAPES = {
   underline: {
     viewBox: '0 0 200 24',
-    paths: ['M3 15 C 30 8, 54 19, 84 13 S 138 6, 168 12 S 192 16, 197 10'],
+    paths: ['M3 12 L 197 12'],
   },
   circle: {
     viewBox: '0 0 200 90',
@@ -37,14 +37,20 @@ export default function Annotation({ type = 'underline', children, start = 'top 
       const root = rootRef.current;
       const paths = root.querySelectorAll('.annotation-path');
       const timeline = gsap.timeline({
-        scrollTrigger: { trigger: root, start, end, scrub: 0.6 },
+        scrollTrigger: { trigger: root, start, end, scrub: 0.3 },
       });
       // na seta, a ponta só aparece depois que a linha chega lá
       paths.forEach((path, index) => {
         timeline.fromTo(
           path,
-          { strokeDashoffset: 1 },
-          { strokeDashoffset: 0, ease: 'none', duration: index === 0 ? 1 : 0.35 }
+          { strokeDashoffset: 100 },
+          {
+            strokeDashoffset: 0,
+            // sem o autoRound o GSAP arredonda o valor em px e o traço salta de vazio para completo
+            autoRound: false,
+            ease: 'none',
+            duration: index === 0 ? 1 : 0.35,
+          }
         );
       });
     });
@@ -55,7 +61,7 @@ export default function Annotation({ type = 'underline', children, start = 'top 
   const svg = (
     <svg className="annotation-svg" viewBox={shape.viewBox} preserveAspectRatio="none" aria-hidden="true" focusable="false">
       {shape.paths.map((d) => (
-        <path key={d} className="annotation-path" d={d} pathLength="1" />
+        <path key={d} className="annotation-path" d={d} pathLength="100" />
       ))}
     </svg>
   );
