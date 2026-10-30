@@ -1,6 +1,6 @@
 # 🌟 Portfólio Interativo - Isabela Moraes
 
-Este projeto é uma landing page pessoal construída com **React**, com foco em animações interativas usando **Framer Motion** e **GSAP (GreenSock Animation Platform)**.
+Este projeto é uma landing page pessoal construída com **React**, com foco em animações interativas usando **GSAP (GreenSock Animation Platform)**.
 
 O objetivo é apresentar a trajetória profissional e projetos de forma dinâmica e criativa, integrando conceitos de **planejamento criativo**, **publicidade** e **live marketing**.
 
@@ -12,18 +12,25 @@ O objetivo é apresentar a trajetória profissional e projetos de forma dinâmic
 - 🎬 Intro com cortina preta em 7 colunas (GSAP), exibida só na primeira visita da sessão
 - ✨ Hero tipográfico animado: "isa [imagem] bela" com as imagens dos projetos em loop
 - 🧭 Header fixo que vira uma pílula escura ao rolar, com menu em tela cheia
-- 🖼️ Cards de projetos com etiqueta da marca, categoria e descrição
+- 👋 Sobre com o momento atual, competências e trajetória
+- 🖼️ Trabalhos selecionados em cards, cada um com página própria (`/trabalhos/:slug`): desafio, ideia, papel e impacto
+- 🎓 Destaque para o TCC "Adidas x Farm Rio"
 - 🎞️ Faixa horizontal de vídeos fixada no scroll (`GSAP ScrollTrigger`)
-- 💡 Destaque para áreas de atuação em publicidade
-- 📩 Sessão de contato com link para e-mail e WhatsApp
-- 📱 Design responsivo
+- 💡 Serviços e footer de contato com acentos em verde-oliva
+- 📱 Design responsivo e respeito à preferência de movimento reduzido
+
+### Onde editar o conteúdo
+
+- `src/data/projects.js`: trabalhos (cards e páginas)
+- `src/data/videos.js`: vídeos da faixa horizontal
+- `src/data/contact.js`: e-mail, WhatsApp, LinkedIn, currículo e seções do menu
+- `src/components/Thesis.jsx`: texto e link do TCC
 
 ---
 
 ## 🛠️ Tecnologias
 
-- [React](https://reactjs.org/)
-- [Framer Motion](https://www.framer.com/motion/)
+- [React](https://react.dev/) + [React Router](https://reactrouter.com/)
 - [GSAP + ScrollTrigger](https://greensock.com/scrolltrigger/)
 - HTML5 + CSS3 (customizado)
 - JavaScript (ES6+)

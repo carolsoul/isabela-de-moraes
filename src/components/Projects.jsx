@@ -1,36 +1,30 @@
 import { useLayoutEffect, useRef } from 'react';
+import { Link } from 'react-router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { projects } from '../data/projects';
+import { useReveal } from '../lib/useReveal';
 import './Projects.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
   const rootRef = useRef(null);
+  useReveal(rootRef);
 
+  // a imagem de cada card "assenta" (zoom out leve) enquanto o card cruza a tela
   useLayoutEffect(() => {
     const mm = gsap.matchMedia();
 
     mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const q = gsap.utils.selector(rootRef);
-
-      q('.project-card').forEach((card) => {
-        gsap.from(card, {
-          autoAlpha: 0,
-          y: 60,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: card, start: 'top 88%', once: true },
-        });
-
+      gsap.utils.toArray('.project-media img', rootRef.current).forEach((img) => {
         gsap.fromTo(
-          card.querySelector('img'),
+          img,
           { scale: 1.15 },
           {
             scale: 1,
             ease: 'none',
-            scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true },
+            scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true },
           }
         );
       });
@@ -40,10 +34,10 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="projects" id="projetos" ref={rootRef} aria-labelledby="projetos-titulo">
-      <div className="projects-head">
-        <h2 className="projects-title" id="projetos-titulo">
-          projetos
+    <section className="projects" id="trabalhos" ref={rootRef} aria-labelledby="trabalhos-titulo">
+      <div className="projects-head" data-reveal>
+        <h2 className="projects-title" id="trabalhos-titulo">
+          Trabalhos selecionados
         </h2>
         <p className="projects-intro">
           Mais que ideias criativas, são experiências com propósito pensadas para emocionar e engajar, do
@@ -51,25 +45,30 @@ export default function Projects() {
         </p>
       </div>
 
-      <div className="projects-grid">
+      <ul className="projects-grid">
         {projects.map((project) => (
-          <article className="project-card" key={project.title}>
-            <div className="project-media">
-              <img
-                src={project.img}
-                alt={`${project.title}: ${project.subtitle}`}
-                loading="lazy"
-                decoding="async"
-                style={{ objectPosition: project.focus }}
-              />
-              <span className="project-tag">{project.brand}</span>
-            </div>
-            <h3 className="project-title">{project.title}</h3>
-            <p className="project-category">{project.subtitle}</p>
-            <p className="project-description">{project.description}</p>
-          </article>
+          <li key={project.slug} data-reveal>
+            <Link className="project-card" to={`/trabalhos/${project.slug}`}>
+              <div className="project-media">
+                <img
+                  src={project.img}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  style={{ objectPosition: project.focus }}
+                />
+                <span className="project-tag">{project.brand}</span>
+              </div>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-category">{project.category}</p>
+              <p className="project-summary">{project.summary}</p>
+              <span className="project-more">
+                Ver projeto <span aria-hidden="true">→</span>
+              </span>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

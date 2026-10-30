@@ -1,0 +1,254 @@
+.case {
+  padding: calc(var(--header-h) + 2.5rem) var(--gutter) 6rem;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.case-back {
+  display: inline-flex;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.case-back:hover {
+  color: var(--olive);
+}
+
+.case-kicker {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.case-tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.case-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.case-title {
+  max-width: 14ch;
+  margin-top: 1.25rem;
+  font-size: clamp(2.6rem, 10vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.case-summary {
+  max-width: 32ch;
+  margin-top: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.case-cover {
+  margin-top: 3rem;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--paper-deep);
+}
+
+.case-cover img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  margin-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.15);
+}
+
+.case-meta dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.case-meta dd {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.case-sections {
+  display: grid;
+}
+
+.case-section {
+  display: grid;
+  gap: 1rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.15);
+}
+
+.case-section h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.case-section-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--olive);
+}
+
+.case-section-body p,
+.case-role li {
+  max-width: 46ch;
+  font-size: 1.15rem;
+  line-height: 1.45;
+}
+
+.case-role {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.case-role li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.case-role li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--olive-light);
+}
+
+.case-next {
+  margin-top: 4rem;
+}
+
+.case-next-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding: 1.25rem;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.case-next-link:hover {
+  background: var(--olive-wash);
+}
+
+.case-next-label {
+  grid-column: 1;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.case-next-title {
+  grid-column: 1;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.case-next-link img {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: clamp(4.5rem, 16vw, 8rem);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.case-missing {
+  min-height: 70vh;
+}
+
+.case-missing .case-back {
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .case {
+    padding: calc(var(--header-h) + 4rem) var(--gutter) 8rem;
+  }
+
+  .case-summary {
+    font-size: clamp(1.4rem, 2.4vw, 2rem);
+  }
+
+  .case-cover {
+    margin-top: 4rem;
+    border-radius: 28px;
+  }
+
+  .case-meta {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .case-section {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+    gap: 3rem;
+    padding: 3.5rem 0;
+  }
+
+  .case-section h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+  }
+
+  .case-section-body p,
+  .case-role li {
+    font-size: 1.3rem;
+  }
+
+  .case-next {
+    margin-top: 6rem;
+  }
+
+  .case-next-link {
+    padding: 1.75rem 2rem;
+    border-radius: 28px;
+  }
+}
